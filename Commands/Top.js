@@ -12,7 +12,7 @@ function numberWithCommas(x) {
 
 module.exports.execute = async(client, message, args, ayar, emoji) => {
   	let raw = db.get("raw");
-	  let embed = new MessageEmbed().setAuthor(message.author.username, message.author.avatarURL({dynamic:true})).setColor("RANDOM").setFooter("ALOSHA ❤️ YASHINU").setDescription(`${message.guild.name} sunucusunda son __14 günlük__ kullanıcı aktiflik verileri. \n Bu verilerin kayıt olma şekli Türkiye saati ile yapılmaktadır.`);
+	  let embed = new MessageEmbed().setAuthor(message.author.username, message.author.avatarURL({dynamic:true})).setColor("RANDOM").setFooter("Eon147 ❤️ Eon").setDescription(`${message.guild.name} sunucusunda son __14 günlük__ kullanıcı aktiflik verileri. \n Bu verilerin kayıt olma şekli Türkiye saati ile yapılmaktadır.`);
 	  
 	  let data = db.get(`stats.voice.members`);
 	  let inday = Object.keys(data[raw.day]).filter(e => message.guild.members.cache.has(e)).sort((a, b) => (Object.values(data[raw.day][b] || {}).reduce((x,y) => Number(x) + Number(y), 0) || 0) - (Object.values(data[raw.day][a] || {}).reduce((x,y) => Number(x) + Number(y), 0)) || 0).splice(0, 5).map((id, index) => `\`${index + 1}.\` <@${id}> \`${moment.duration(Object.values(data[raw.day][id]).reduce((x, y) => Number(x) + Number(y))).format("H [saat,] m [dakika]")}\``);
@@ -73,7 +73,7 @@ module.exports.execute = async(client, message, args, ayar, emoji) => {
 	  embed.addField("Mesaj | Günlük Toplam", indaytext.join("\n") || "Hiçbir veri yok.");
 	  embed.addField("Mesaj | Haftalık Toplam", `Toplam Mesaj: \`${inweektextTotal} mesaj\` \n\n ${inweektextObject.join("\n") || "Hiçbir veri yok."}`);
 	  embed.addField("Mesaj | 2 Haftalık Toplam", `Toplam Mesaj: \`${intwoweekTotal} mesaj\` \n\n ${intwoweektextObject.join("\n") || "Hiçbir veri yok."}`);
-	  //embed.setImage("https://media.giphy.com/media/YnAtv62rI4eUSAVh5A/giphy.gif");
+	  embed.setImage("https://media.giphy.com/media/YnAtv62rI4eUSAVh5A/giphy.gif");
 	  message.channel.send(embed);
 };
 module.exports.configuration = {

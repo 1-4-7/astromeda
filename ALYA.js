@@ -206,7 +206,11 @@ client.tarihHesapla = (date) => {
   string = string.trim();
   return `\`${string} önce\``;
 };
-
+/*
+client.on("ready", () => {
+  client.channels.cache.get('813419391983026177').join();
+  });
+*/
 client.wait = async function(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);

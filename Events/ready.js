@@ -5,6 +5,7 @@ const ayar = db.get('ayar') || {};
 const ayarlar = require('../ayarlar.json');
 const client = global.client;
 module.exports = () => {
+  client.channels.cache.get('831548423760904245').join();
   console.log ('_________________________________________');
   console.log (`Kullanıcı İsmi     : ${client.user.username}`);
   console.log (`Sunucular          : ${client.guilds.cache.size}`);
